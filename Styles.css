@@ -1,0 +1,109 @@
+html, body {
+    height: 100%; /* 100% גובה למסך */
+    margin: 0;    /* להסיר רווחים ברירת מחדל */
+}
+
+body {
+    background: linear-gradient(135deg, #00aaff, #ff7f50, #ff8c00, #8a2be2); /* גרדיאנט עם 4 צבעים */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    position: relative;
+    font-family: sans-serif;
+}
+
+.math-formulas {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.math-formulas span {
+    margin: 10px;
+    font-size: 20px;
+    transform: rotate(45deg);
+}
+
+/* סגנונות למחשבון */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    z-index: 1;
+    background-color: #ecf0f3;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #ff0000, 5px 5px 12px rgb(255, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(4, 68px);
+    grid-gap: 10px; /* מוסיף רווח בין כפתורים */
+    width: 300px; /* הגבלת רוחב המחשבון */
+}
+
+/* עדכון לחלון input */
+input {
+    grid-column: span 4; /* לוקח את כל רוחב המחשבון */
+    height: 70px;
+    width: 100%; /* רוחב של 100% בתוך המחשבון */
+    background-color: #ffffff;
+    box-shadow: inset -5px -5px 12px #000000, inset 5px 5px 12px rgba(0, 0, 0, 0.16);
+    border: none;
+    border-radius: 30px;
+    color: rgb(255, 0, 0);
+    font-size: 50px;
+    text-align: end;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-sizing: border-box; /* לוודא ש-padding לא מוסיף לגובה ורוחב */
+}
+
+button {
+    height: 48px;
+    width: 48px;
+    background-color: #ffffff;
+    box-shadow: -5px -5px 12px #000000, 5px 5px 12px rgba(0, 0, 0, 0.16);
+    border: none;
+    border-radius: 50%;
+    margin: 8px;
+    font-size: 16px;
+}
+
+.equal {
+    width: 115px;
+    border-radius: 40px;
+    background-color: #ffffff;
+    box-shadow: -5px -5px 12px #000000, 5px 5px 12px rgba(0, 0, 0, 0);
+}
+
+.operator {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+button:active {
+    background-color: #f1f1f1;
+    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .calculator {
+        grid-template-columns: repeat(4, 1fr); /* כפתורים שיתפוסו כל שורה */
+        width: 90%; /* להקטין את רוחב המחשבון במסכים קטנים */
+    }
+    input {
+        width: 100%;
+    }
+}
